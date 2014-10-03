@@ -1,6 +1,7 @@
 module Springtee
   Product = Struct.new(:id, :name, :image_url) do
     def self.find(id)
+      sleep(rand)
       Springtee::Product::PRODUCTS.fetch(id)
     end
   end
