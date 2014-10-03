@@ -28,13 +28,7 @@
             <li><a href="/products/2">Product 2</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <% if @current_user %>
-                <a href='#'><%= @current_user %></a>
-              <% else %>
-                <a href="/login">Login</a>
-              <% end %>
-            </li>
+            <li id='login_bar'><a href="/login">Login</a></li>
           </ul>
         </div>
       </div>
@@ -42,6 +36,16 @@
     <div class="container" style='margin-top: 50px'>
       <%= yield %>
     </div>
+
+    <script>
+      function readCookie(k,r){return(r=RegExp('(^|; )'+encodeURIComponent(k)+'=([^;]*)').exec(document.cookie))?r[2]:null;}
+      var email;
+      if(email = readCookie('user_email')) {
+        var anchor = document.querySelector('#login_bar a');
+        anchor.href = '#';
+        anchor.text = decodeURIComponent(email);
+      }
+    </script>
   </body>
 </html>
 
