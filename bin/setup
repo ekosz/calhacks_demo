@@ -2,3 +2,4 @@
 gem install bundler --no-ri --no-rdoc
 bundle
 bundle exec rspec
+git checkout start_here
