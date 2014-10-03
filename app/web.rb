@@ -9,6 +9,8 @@ module Springtee
     end
 
     get '/products/:id' do
+      cache_control :public, :max_age => 60 # 1 minute
+
       product = Product.find(params[:id].to_i)
 
       etag product.etag

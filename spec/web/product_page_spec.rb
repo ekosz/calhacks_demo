@@ -30,6 +30,10 @@ describe 'The product page' do
       expect( last_response.headers['Etag'] ).to_not be_nil
     end
 
+    it 'sets cache-control for the product' do
+      expect( last_response.headers['Cache-Control'] ).to_not be_nil
+    end
+
   end
 
   context 'using an etag' do
