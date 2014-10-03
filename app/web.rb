@@ -4,6 +4,10 @@ require 'springtee/product'
 module Springtee
   class Web < Sinatra::Base
 
+    get '/' do
+      redirect to('/products/1')
+    end
+
     get '/products/:id' do
       product = Product.find(params[:id].to_i)
 
