@@ -1,3 +1,4 @@
+#!/bin/sh
 gem install bundler --no-ri --no-rdoc
 bundle
 bundle exec rspec
