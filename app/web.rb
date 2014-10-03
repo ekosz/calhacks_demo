@@ -7,7 +7,7 @@ module Springtee
     get '/products/:id' do
       product = Product.find(params[:id].to_i)
 
-      erb :product, :locals => {:product => product }
+      erb :product, :locals => {:product => product, :title => "#{product.name} | Springtee"}
     end
 
   end
