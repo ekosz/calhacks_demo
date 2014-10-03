@@ -4,6 +4,10 @@ require 'springtee/product'
 module Springtee
   class Web < Sinatra::Base
 
+    before do
+      @current_user = request.cookies['user_email']
+    end
+
     get '/' do
       redirect to('/products/1')
     end

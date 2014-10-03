@@ -28,7 +28,13 @@
             <li><a href="/products/2">Product 2</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
+            <li>
+              <% if @current_user %>
+                <a href='#'><%= @current_user %></a>
+              <% else %>
+                <a href="/login">Login</a>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
