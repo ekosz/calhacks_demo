@@ -1,8 +1,14 @@
+require 'digest/md5'
+
 module Springtee
   Product = Struct.new(:id, :name, :image_url) do
     def self.find(id)
       sleep(rand)
       Springtee::Product::PRODUCTS.fetch(id)
+    end
+
+    def etag
+      Digest::MD5.hexdigest(id.to_s)
     end
   end
 
